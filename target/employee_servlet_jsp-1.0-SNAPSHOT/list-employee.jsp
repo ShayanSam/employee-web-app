@@ -33,6 +33,7 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <td>Add INFO</td>
                 <td>Update</td>
                 <td>Delete</td>
             </tr>
@@ -48,12 +49,20 @@
                 <c:url var="deleteLink" value="employee-servlet">
                     <c:param name="command" value="DELETE" />
                     <c:param name="employeeId" value="${tempEmployee.id}" />
+                    <c:param name="employeeInfId" value="${tempEmployee.employeeINF.id}" />
+
+                </c:url>
+
+                <c:url var="UpdateLink" value="update.jsp">
+                    <c:param name="command" value="UPDATE" />
+                    <c:param name="employeeId" value="${tempEmployee.id}" />
                 </c:url>
 
                 <tr>
                     <td> ${tempEmployee.firstName} </td>
                     <td> ${tempEmployee.lastName} </td>
-                    <td><a href="${tempLink}">Update</a> </td>
+                    <td><a href="${tempLink}">Add INFO</a> </td>
+                    <td><a href="${UpdateLink}">Update</a> </td>
                      <td> <a href="${deleteLink}"
                            onclick="if (!(confirm('Are you sure you want to delete this Employee?'))) return false">
                             Delete</a>

@@ -39,25 +39,47 @@ public class EmployeeControllerServlet extends HttpServlet {
                break;
            case "LOAD":
                loadEmployee(request,response);
-               listEmployeeINF(request,response);
                break;
            case "INF":
                listEmployeeINF(request,response);
+               break;
            case "DELETE":
                deleteEmployee(request,response);
+           case "UPDATE":
+               updateEmployee(request,response);
+               break;
            default:
                listEmployee(request,response);
+               break;
 
        }
     }
 
-    private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) {
+    private void updateEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
         String id = request.getParameter("employeeId");
-        Integer idInt = Integer.parseInt(id);
-        employeeUtil.deleteEmployee(idInt);
+        int idInt = Integer.parseInt(id);
+        Employee employee = new Employee();
+        employee.setFirstName(firstName);
+        employee.setLastName(lastName);
+        employeeUtil.updateEmployee(employee, idInt);
+        listEmployee(request,response);
     }
 
-    private void loadEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("employeeId");
+        int idInt = Integer.parseInt(id);
+
+        String employeeINFId = request.getParameter("employeeInfId");
+        int intIdInf = Integer.parseInt(employeeINFId);
+
+        employeeUtil.deleteEmployee(idInt);
+        employeeUtil.deleteEmployeeINF(intIdInf);
+        listEmployee(request,response);
+    }
+
+    private void loadEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String fathersName = request.getParameter("fathersname");
         String nationalCode = request.getParameter("ncode");
         String phoneNumber = request.getParameter("pnumber");
@@ -71,6 +93,7 @@ public class EmployeeControllerServlet extends HttpServlet {
         employeeINF.setAddress(address);
         employeeUtil.addEmployeeINF(employeeINF);
         employeeUtil.updateEmployINF(idInt,employeeINF);
+        listEmployeeINF(request,response);
 
 
 

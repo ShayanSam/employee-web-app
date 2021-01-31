@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Add Student</title>
+    <title>Add Employee</title>
 
     <link type="text/css" rel="stylesheet" href="style.css">
     <link type="text/css" rel="stylesheet" href="index.css">
@@ -11,12 +11,12 @@
 <body>
 <div id="wrapper">
     <div id="header">
-        <h2>FooBar University</h2>
+        <h2>FooBar CEO</h2>
     </div>
 </div>
 
 <div id="container">
-    <h3>Add Student</h3>
+    <h3>Add Employee</h3>
 
     <form action="employee-servlet" method="GET">
 
@@ -53,14 +53,5 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
 
 

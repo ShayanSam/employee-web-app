@@ -64,4 +64,24 @@ public class EmployeeUtil {
         em.remove(employee);
         entityTransaction.commit();
     }
+
+    public void updateEmployee(Employee employee, int empId) {
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+        EntityTransaction entityTransaction = em.getTransaction();
+        entityTransaction.begin();
+        Employee tempEmployee = em.find(Employee.class, empId);
+        tempEmployee.setFirstName(employee.getFirstName());
+        tempEmployee.setLastName(employee.getLastName());
+        entityTransaction.commit();
+
+    }
+
+    public void deleteEmployeeINF(int id){
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+        EntityTransaction entityTransaction = em.getTransaction();
+        entityTransaction.begin();
+        EmployeeINF employeeINF = em.find(EmployeeINF.class,id);
+        em.remove(employeeINF);
+        entityTransaction.commit();
+    }
 }

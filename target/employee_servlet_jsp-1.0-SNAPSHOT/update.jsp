@@ -16,13 +16,12 @@
 </div>
 
 <div id="container">
-    <h3>Add Employee</h3>
+    <h3>Update Employee</h3>
 
     <form action="employee-servlet" method="GET">
-
-        <input type="hidden" name="command" value="ADD" />
-
         <table>
+            <input type="hidden" name="command" value="<%=request.getParameter("command") %>" >
+            <input type="hidden" name="employeeId" value="<%=request.getParameter("employeeId") %>" >
             <tbody>
             <tr>
                 <td><label>First name:</label></td>
@@ -34,10 +33,9 @@
                 <td><input type="text" name="lastName" /></td>
             </tr>
 
-
             <tr>
                 <td><label></label></td>
-                <td><input type="submit" value="Save" class="save" /></td>
+                <td><input type="submit" value="Update" class="save" /></td>
             </tr>
 
             </tbody>
@@ -53,5 +51,14 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
 
 

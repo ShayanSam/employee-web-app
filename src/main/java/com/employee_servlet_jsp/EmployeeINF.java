@@ -81,12 +81,13 @@ public class EmployeeINF implements Externalizable {
         this.employee = employee;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Father's name: ").append(fathersName).append(" || ").append("NCode: ").append(nationalCode).append(" || ")
-                .append("PhoneN: ").append(phoneNumber).append(" || ").append("Address: ").append(Address);
-        String info = stringBuilder.toString();
-        return info;
-    }
+
+//    @Override
+//    public String toString() {
+//        StringBuilder stringBuilder = new StringBuilder();
+//        stringBuilder.append("Father's name: ").append(fathersName).append(" || ").append("NCode: ").append(nationalCode).append(" || ")
+//                .append("PhoneN: ").append(phoneNumber).append(" || ").append("Address: ").append(Address);
+//        String info = stringBuilder.toString();
+//        return info;
+//    }
 }
