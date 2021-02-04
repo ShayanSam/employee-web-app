@@ -84,4 +84,5 @@ public class EmployeeUtil {
         em.remove(employeeINF);
         entityTransaction.commit();
     }
+
 }

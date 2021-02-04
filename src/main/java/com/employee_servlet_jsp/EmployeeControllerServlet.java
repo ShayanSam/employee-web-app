@@ -71,9 +71,11 @@ public class EmployeeControllerServlet extends HttpServlet {
         String id = request.getParameter("employeeId");
         int idInt = Integer.parseInt(id);
         String employeeINFId = request.getParameter("employeeInfId");
-        int intIdInf = Integer.parseInt(employeeINFId);
         employeeUtil.deleteEmployee(idInt);
-        employeeUtil.deleteEmployeeINF(intIdInf);
+        if(!employeeINFId.equals("")) {
+            int intIdInf = Integer.parseInt(employeeINFId);
+            employeeUtil.deleteEmployeeINF(intIdInf);
+        }
         listEmployee(request,response);
     }
 
